@@ -25,4 +25,5 @@ The ```fullpath``` variable is for the full path of the file/folder.
 The ```mod_time``` variable is for the modification time of the file/folder.
 
 Have fun exploring the code :D <3
+
 P.S : I know the code isn't really perfect and we can do better, I will get back to it and upgrade it. But for now let's focus on the new project. Making a minishell :D
