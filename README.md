@@ -6,6 +6,7 @@ Not that much flags, but we're really proud of what we did.
 
 <h3>Algo used :</h3>
 Basically nothing special, just a simple binary tree defined as the following :
+
 ```
 typedef struct  s_tree
 {
@@ -16,6 +17,7 @@ typedef struct  s_tree
   struct s_tree *right;
 }               t_t;
 ```
+
 The ```name``` variable is for the name of the file/folder.
 The ```fullpath``` variable is for the full path of the file/folder.
 The ```mod_time``` variable is for the modification time of the file/folder.
