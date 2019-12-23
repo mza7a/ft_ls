@@ -19,7 +19,9 @@ typedef struct  s_tree
 ```
 
 The ```name``` variable is for the name of the file/folder.
+
 The ```fullpath``` variable is for the full path of the file/folder.
+
 The ```mod_time``` variable is for the modification time of the file/folder.
 
 Have fun exploring the code :D <3
