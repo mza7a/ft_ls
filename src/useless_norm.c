@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:12:07 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/23 02:48:10 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/23 17:02:01 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void			check_argv(char **av, int option, t_t **folders, t_t **files)
 {
 	if (is_symbolic(*av) && ((option & R && !(option & L))
 		|| ((option & L) && *av[ft_strlen(*av) - 1] == '/')))
-		*folders = do_flags(*folders, *av, *av, option); //must change this to do_flags
+		*folders = do_flags(*folders, *av, *av, option);
 	else if (option & L && is_symbolic(*av) && *av[ft_strlen(*av) - 1] != '/')
-		*files = do_flags(*files, *av, *av, option); //find a solution to change it to do_flags
+		*files = do_flags(*files, *av, *av, option);
 	else if (is_arg_directory(*av))
-		*folders = do_flags(*folders, *av, *av, option); //must change this to do_flags
+		*folders = do_flags(*folders, *av, *av, option);
 	else
-		*files = do_flags(*files, *av, *av, option); //find a solution to change it to do_flags
+		*files = do_flags(*files, *av, *av, option);
 }
 
 int				*check_option_n_print(t_t *error, t_t *files, int option)

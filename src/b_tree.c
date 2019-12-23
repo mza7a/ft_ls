@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 02:30:53 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/23 14:37:06 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/23 17:05:59 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,39 +31,12 @@ t_t					*get_new_node(char *name, char *path, int mod_time)
 			root->fullpath = ft_strjoin(path, name);
 	}
 	else
-		root->fullpath = ft_strdup(name);	
+		root->fullpath = ft_strdup(name);
 	root->mod_time = mod_time;
 	root->left = NULL;
 	root->right = NULL;
 	return (root);
 }
-
-/*t_t					*get_new_node2(char *name, int mod_time)
-{
-	t_t				*root;
-
-	root = (t_t *)malloc(sizeof(t_t));
-	root->name = ft_strdup(name);
-	root->fullpath = ft_strdup(name);
-	root->mod_time = mod_time;
-	root->left = NULL;
-	root->right = NULL;
-	return (root);
-}
-
-t_t					*insert_name2(t_t *root, char *name)
-{
-	if (root == NULL)
-	{
-		root = get_new_node2(name, 0);
-		return (root);
-	}
-	if (ft_strcmp(name, root->name) <= 0)
-		root->left = insert_name2(root->left, name);
-	else
-		root->right = insert_name2(root->right, name);
-	return (root);
-}*/
 
 t_t					*insert_name(t_t *root, char *name, char *path)
 {

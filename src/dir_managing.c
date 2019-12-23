@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:10:36 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/12 15:30:22 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/23 17:06:23 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_t					*do_flags(t_t *root, char *name, char *path, int option)
 {
-	if (option & T) //for this option change check_time(reverse) so lstat must return 0 instead of -1
+	if (option & T)
 	{
 		if (option & S)
 			root = check_time_reverse(root, name, path, option);

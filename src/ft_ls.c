@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 02:30:46 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/23 02:51:33 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/23 17:06:13 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void				argv_managing(char **av, int option)
 		if (!isfilefolder(*av))
 			error = insert_name(error, *av, *av);
 		else
-			check_argv(av, option, &folders, &files); //go to check_argv
+			check_argv(av, option, &folders, &files);
 	}
 	check = 0;
 	tab = check_option_n_print(error, files, option);
