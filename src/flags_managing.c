@@ -3,19 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   flags_managing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmzah <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:10:46 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/01 17:31:08 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/27 00:31:48 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
+int			check_char(char c)
+{
+	return (c == 'a' || c == 'l' || c == 'R' || c == 'r' || c == 't'
+			|| c == 'p' || c == 'g');
+}
+
 void		flags_exist(char c, int **option)
 {
 	if (c == 'a' && !(**option & A))
 		**option += A;
+	else if (c == 'g' && !(**option & G))
+		**option += G;
 	else if (c == 'l' && !(**option & L))
 		**option += L;
 	else if (c == 'R' && !(**option & R))
@@ -26,7 +34,7 @@ void		flags_exist(char c, int **option)
 		**option += T;
 	else if (c == 'p' && !(**option & P))
 		**option += P;
-	else
+	else if (!check_char(c))
 	{
 		ft_putstr_fd("ft_ls: illegal option -- ", 2);
 		ft_putchar_fd(c, 2);

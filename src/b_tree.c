@@ -19,7 +19,7 @@ t_t					*get_new_node(char *name, char *path, int mod_time)
 
 	root = (t_t *)malloc(sizeof(t_t));
 	root->name = ft_strdup(name);
-	if (!(check & Y))
+	if (!(g_check & Y))
 	{
 		if (ft_strcmp(path, "/"))
 		{
@@ -60,16 +60,16 @@ void				display_tree(t_t *root, int option, int *tab)
 	{
 		if (root->left != NULL)
 			display_tree(root->left, option, tab);
-		if (option & L)
+		if (option & L || option & G)
 		{
-			check = display_tree_l(root, tab);
+			check = display_tree_l(root, tab, option);
 			if (check == 0)
 				return ;
 		}
 		mini_printf("%s", root->name);
 		if (option & P && is_directory(root->fullpath))
 			ft_putchar('/');
-		if (option & L)
+		if (option & L || option & G)
 			check_link(root->fullpath);
 		mini_printf("\n");
 		if (root->right != NULL)

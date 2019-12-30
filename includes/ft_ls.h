@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 02:30:21 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/23 02:50:25 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/26 23:29:09 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,22 @@
 # define T 16
 # define P 32
 # define Y 2
+# define C 64
+# define G 128
 
-int	check;
+int					g_check;
 
 typedef struct		s_tree
 {
 	char			*name;
 	char			*fullpath;
 	int				mod_time;
+	int				check_mate;
 	struct s_tree	*left;
 	struct s_tree	*right;
 }					t_t;
 
 t_t					*get_new_node(char *name, char *path, int mod_time);
-t_t					*get_new_node2(char *name, int mod_time);
-t_t					*insert_name2(t_t *root, char *name);
 t_t					*insert_name(t_t *root, char *name, char *path);
 void				display_tree(t_t *root, int option, int *tab);
 
@@ -58,8 +59,7 @@ t_t					*insert_time_reverse(t_t *root, char *name, int mtime,
 		char *path);
 
 int					size_tree(t_t *root);
-void				free_free(t_t **root);
-void				free_tree(t_t **node);
+int					free_tree(t_t **node);
 void				size_tree_dir(t_t *root, int *sum);
 void				display_tree_error(t_t *root);
 
@@ -87,10 +87,10 @@ void				print_perm_type(struct stat buf);
 void				print_perm(struct stat buf);
 void				print_acl(char *path);
 void				print_permissions(struct stat buff, t_t *root);
-int					display_tree_l(t_t *root, int *tab);
+int					display_tree_l(t_t *root, int *tab, int option);
 
 void				print_total(t_t *root);
-void				print_groups(struct stat buff, int us, int grp);
+void				print_groups(struct stat buff, int us, int grp, int option);
 void				print_files_rest(struct stat buf, int max_major,
 		int max_minor, int size);
 

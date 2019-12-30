@@ -6,7 +6,7 @@
 /*   By: hmzah <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:11:29 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/01 17:27:27 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/26 23:19:57 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void				print_total(t_t *root)
 	mini_printf("total %d\n", i);
 }
 
-void				print_groups(struct stat buff, int us, int grp)
+void				print_groups(struct stat buff, int us, int grp, int option)
 {
 	struct passwd	*pw;
 	struct group	*gr;
@@ -46,10 +46,13 @@ void				print_groups(struct stat buff, int us, int grp)
 	pw = getpwuid(buff.st_uid);
 	gr = getgrgid(buff.st_gid);
 	i = (us - ft_strlen(pw->pw_name)) + 1;
-	ft_putstr(" ");
-	ft_putstr(pw->pw_name);
-	while (i--)
+	if (!(option & G))
+	{
 		ft_putstr(" ");
+		ft_putstr(pw->pw_name);
+		while (i--)
+			ft_putstr(" ");
+	}
 	ft_putstr(" ");
 	i = (grp - ft_strlen(gr->gr_name)) + 1;
 	ft_putstr(gr->gr_name);

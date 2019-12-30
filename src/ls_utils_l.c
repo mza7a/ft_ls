@@ -38,7 +38,7 @@ void				print_perm(struct stat buf)
 	ft_putstr((buf.st_mode & S_IRGRP) ? "r" : "-");
 	ft_putstr((buf.st_mode & S_IWGRP) ? "w" : "-");
 	if (buf.st_mode & S_ISGID)
-		ft_putstr((buf.st_mode & S_IXGRP) ? "s" : "l");
+		ft_putstr((buf.st_mode & S_IXGRP) ? "s" : "S");
 	else
 		ft_putstr((buf.st_mode & S_IXGRP) ? "x" : "-");
 	ft_putstr((buf.st_mode & S_IROTH) ? "r" : "-");
@@ -82,7 +82,7 @@ void				print_permissions(struct stat buff, t_t *root)
 	print_acl(root->fullpath);
 }
 
-int					display_tree_l(t_t *root, int *tab)
+int					display_tree_l(t_t *root, int *tab, int option)
 {
 	struct stat		buff;
 
@@ -90,7 +90,7 @@ int					display_tree_l(t_t *root, int *tab)
 	{
 		print_permissions(buff, root);
 		mini_printf(" %dd", tab[0], buff.st_nlink);
-		print_groups(buff, tab[1], tab[2]);
+		print_groups(buff, tab[1], tab[2], option);
 		print_files_rest(buff, tab[4], tab[5], tab[3]);
 		print_time(buff);
 		return (1);

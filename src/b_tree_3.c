@@ -6,7 +6,7 @@
 /*   By: hmzah <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:10:05 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/01 17:10:08 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/27 00:34:54 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,17 @@ void				free_free(t_t **root)
 	*root = NULL;
 }
 
-void				free_tree(t_t **node)
+int					free_tree(t_t **node)
 {
 	t_t				*n;
 
 	if (*node == NULL)
-		return ;
+		return (1);
 	n = *node;
 	free_tree(&(n->left));
 	free_tree(&(n->right));
 	free_free(&n);
+	return (1);
 }
 
 void				size_tree_dir(t_t *root, int *sum)

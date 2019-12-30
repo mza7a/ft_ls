@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hmzah <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/01 17:34:35 by hmzah             #+#    #+#              #
-#    Updated: 2019/12/01 17:47:25 by hmzah            ###   ########.fr        #
+#    Updated: 2019/12/24 18:32:49 by hmzah            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC = src/b_tree.c \
 all: $(NAME)
 
 $(NAME): $(LIB)
-	gcc -Wall -Wextra -Werror $(SRC) libft/$(LIB) -o $(NAME)
+	gcc -g -Wall -Wextra -Werror $(SRC) libft/$(LIB) -o $(NAME)
 
 $(LIB):
 	make -C libft

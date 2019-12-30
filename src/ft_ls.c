@@ -6,7 +6,7 @@
 /*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 02:30:46 by hmzah             #+#    #+#             */
-/*   Updated: 2019/12/23 17:06:13 by hmzah            ###   ########.fr       */
+/*   Updated: 2019/12/27 00:42:40 by hmzah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ void				argv_managing(char **av, int option)
 		else
 			check_argv(av, option, &folders, &files);
 	}
-	check = 0;
+	g_check = 0;
 	tab = check_option_n_print(error, files, option);
 	if (files && folders)
 		mini_printf("\n");
 	display_dir(folders, option, 0,
 		size_tree(folders) + size_tree(files) + size_tree(error));
-	if (option & L)
+	if (option & L || option & G)
 		free(tab);
-	free_tree(&files);
-	free_tree(&folders);
+	if (free_tree(&error) || free_tree(&files) || free_tree(&folders))
+		return ;
 }
 
 int					main(int ac, char **av)
@@ -88,7 +88,6 @@ int					main(int ac, char **av)
 	}
 	else if (ac >= 2 && start_arg)
 	{
-		check += Y;
 		argv_managing(av + start_arg - 1, option);
 		return (0);
 	}
